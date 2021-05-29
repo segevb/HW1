@@ -6,5 +6,5 @@ RUN pip3 install -r requirements.txt
 COPY . .
 ENV FLASK_APP=temperatureConverter.py
 ENV FLASK_RUN_HOST=0.0.0.0
-EXPOSE 80
+EXPOSE 5000
 ENTRYPOINT flask run
