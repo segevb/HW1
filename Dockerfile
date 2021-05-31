@@ -1,10 +1,8 @@
 FROM python:3.8
 MAINTAINER segev91.b@gmail.com
-WORKDIR /app
-COPY requirements.txt requirements.txt
+USER root
+EXPOSE 8080
+COPY * /
 RUN pip3 install -r requirements.txt
-COPY . .
 ENV FLASK_APP=temperatureConverter.py
-ENV FLASK_RUN_HOST=0.0.0.0
-EXPOSE 5000
-ENTRYPOINT flask run
+ENTRYPOINT ["/usr/local/bin/flask", "run", "--host=0.0.0.0"]
